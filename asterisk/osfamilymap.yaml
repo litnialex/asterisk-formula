@@ -12,23 +12,23 @@
 ---
 Debian:
   pkg:
-    name: TEMPLATE-debian
-  config: /etc/TEMPLATE.d/custom.conf
+    name: asterisk-debian
+  config: /etc/asterisk.d/custom.conf
 
 RedHat:
   pkg:
-    name: TEMPLATE-redhat
-  config: /etc/TEMPLATE.conf
+    name: asterisk-redhat
+  config: /etc/asterisk.conf
 
 Suse:
   pkg:
-    name: TEMPLATE-suse
+    name: asterisk-suse
 
 Gentoo: {}
 
 Arch:
   pkg:
-    name: TEMPLATE-arch
+    name: asterisk-arch
   service:
     name: service-arch
 

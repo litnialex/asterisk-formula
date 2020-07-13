@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
 # vim: ft=yaml
 ---
-TEMPLATE:
+asterisk:
   pkg:
-    name: TEMPLATE
+    name: asterisk
   rootgroup: root
-  config: '/etc/TEMPLATE'
+  config: '/etc/asterisk'
   service:
-    name: TEMPLATE
+    name: asterisk
   subcomponent:
-    config: '/etc/TEMPLATE-subcomponent-formula.conf'
+    config: '/etc/asterisk-subcomponent-formula.conf'
   # Just here for testing
   added_in_defaults: defaults_value
   winner: defaults
