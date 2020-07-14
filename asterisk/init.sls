@@ -1,8 +1,12 @@
 # -*- coding: utf-8 -*-
 # vim: ft=sls
+---
 
 include:
-  - .package
-  - .config
+  - .prereq
+  - .sources
+  - .compile
+  - .install
+  - .configs
   - .service
-  - .subcomponent
+  - .sounds
