@@ -11,8 +11,3 @@ supports:
   - platform-name: ubuntu
   - platform-name: centos
   - platform-name: fedora
-  - platform-name: opensuse
-  - platform-name: suse
-  - platform-name: freebsd
-  - platform-name: amazon
-  - platform-name: arch

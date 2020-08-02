@@ -8,7 +8,7 @@
 {% for sounds in asterisk.sounds %}
 {{ 'asterisk-sounds-' ~ sounds.url }}:
   archive.extracted:
-    - name: /var/lib/asterisk/sounds/{{ sounds.subdir}}
+    - name: /var/lib/asterisk/sounds/{{ sounds.subdir }}
     - source: {{ sounds.url }}
     - skip_verify: true
     - enforce_toplevel: false

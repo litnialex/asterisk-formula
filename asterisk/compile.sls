@@ -26,4 +26,4 @@ asterisk-menuselect:
         menuselect/menuselect
         --enable {{ asterisk.menuselect_enable | join(" --enable ") }}
         --disable {{ asterisk.menuselect_disable | join(" --disable ") }}
-    - cwd: {{ asterisk.src_dir }} 
+    - cwd: {{ asterisk.src_dir }}

@@ -5,7 +5,7 @@
 {%- set tplroot = tpldir.split('/')[0] %}
 {%- from tplroot ~ "/map.jinja" import asterisk with context %}
 
-{% set pkg_list = asterisk.pkgs_basic.split() + asterisk.pkgs_build.split() %} 
+{% set pkg_list = asterisk.pkgs_basic.split() + asterisk.pkgs_build.split() %}
 
 asterisk-prereq:
   pkg.installed:
