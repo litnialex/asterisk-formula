@@ -22,8 +22,10 @@ asterisk:
     - pbx_dundi
   configure_options: --with-pjproject-bundled --with-jansson-bundled --exec-prefix=/usr
   sounds:
-    - url: http://downloads.asterisk.org/pub/telephony/sounds/asterisk-core-sounds-en-wav-current.tar.gz
+    - url: "http://downloads.asterisk.org/pub/telephony/sounds/\
+            asterisk-core-sounds-en-wav-current.tar.gz"
       subdir: en
-    - url: http://downloads.asterisk.org/pub/telephony/sounds/asterisk-extra-sounds-en-wav-current.tar.gz
+    - url: "http://downloads.asterisk.org/pub/telephony/sounds/\
+            asterisk-extra-sounds-en-wav-current.tar.gz"
       subdir: en
   user: asterisk
