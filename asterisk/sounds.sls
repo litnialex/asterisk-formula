@@ -13,4 +13,5 @@
     - skip_verify: true
     - enforce_toplevel: false
     - user: {{ asterisk.user }}
+    - trim_output: 5
 {% endfor %}
