@@ -14,8 +14,8 @@ asterisk-formula
    :scale: 100%
    :target: https://github.com/semantic-release/semantic-release
 
-A SaltStack formula that is empty. It has dummy content to help with a quick
-start on a new formula and it serves as a style guide.
+A SaltStack formula to build `Asterisk IP PBX <http://asterisk.org>`_ from sources.
+
 
 .. contents:: **Table of Contents**
    :depth: 1
@@ -23,18 +23,11 @@ start on a new formula and it serves as a style guide.
 General notes
 -------------
 
-See the full `SaltStack Formulas installation and usage instructions
-<https://docs.saltstack.com/en/latest/topics/development/conventions/formulas.html>`_.
+It takes a while (about 10 min at a medium PC) to configure and compile Asterisk.
 
-If you are interested in writing or contributing to formulas, please pay attention to the `Writing Formula Section
-<https://docs.saltstack.com/en/latest/topics/development/conventions/formulas.html#writing-formulas>`_.
+This formula uses `template-formula
+<https://github.com/saltstack-formulas/template-formula>`_ as a base.
 
-If you want to use this formula, please pay attention to the ``FORMULA`` file and/or ``git tag``,
-which contains the currently released version. This formula is versioned according to `Semantic Versioning <http://semver.org/>`_.
-
-See `Formula Versioning Section <https://docs.saltstack.com/en/latest/topics/development/conventions/formulas.html#versioning>`_ for more details.
-
-If you need (non-default) configuration, please pay attention to the ``pillar.example`` file and/or `Special notes`_ section.
 
 Contributing to this repo
 -------------------------
@@ -43,91 +36,53 @@ Contributing to this repo
 
 Please see `How to contribute <https://github.com/saltstack-formulas/.github/blob/master/CONTRIBUTING.rst>`_ for more details.
 
-Special notes
--------------
-
-None
-
 Available states
 ----------------
 
-.. contents::
-   :local:
-
 ``asterisk``
 ^^^^^^^^^^^^
+Meta-state which includes: 
+ * `asterisk.prereq`_
+ * `asterisk.sources`_
+ * `asterisk.compile`_
+ * `asterisk.install`_
+ * `asterisk.configs`_
+ * `asterisk.service`_
+ * `asterisk.sounds`_
 
-*Meta-state (This is a state that includes other states)*.
 
-This installs the asterisk package,
-manages the asterisk configuration file and then
-starts the associated asterisk service.
-
-``asterisk.package``
-^^^^^^^^^^^^^^^^^^^^
-
-This state will install the asterisk package only.
-
-``asterisk.config``
+``asterisk.prereq``
 ^^^^^^^^^^^^^^^^^^^
+Install packages required to successfully compile asterisk from sources.
+Package list is taken from ``./contrib/scripts/install_prereq`` script from asterisk sources.
 
-This state will configure the asterisk service and has a dependency on ``asterisk.install``
-via include list.
+``asterisk.sources``
+^^^^^^^^^^^^^^^^^^^^
+Download Asterisk sources from https://github.com/asterisk/asterisk.git.
+Default Asterisk version is ``certified/16.8``. Use pillar's value ``asterisk.rev`` to change it.
+
+``asterisk.compile``
+^^^^^^^^^^^^^^^^^^^^
+Compile Asterisk sources. Executes ``./configure`` and ``./make``.
+
+``asterisk.install``
+^^^^^^^^^^^^^^^^^^^^
+Install Asterisk binary, libriries, etc. Executes ``./make install``.
+
+``asterisk.configs``
+^^^^^^^^^^^^^^^^^^^^
+Install configuration files from ``files/configs`` into `/etc/asterisk` directory.
+Different sets of configuration files will be added later invoking ``files_switch`` macro.
 
 ``asterisk.service``
 ^^^^^^^^^^^^^^^^^^^^
+Install, run and enable systemd service ``asterisk``.
 
-This state will start the asterisk service and has a dependency on ``asterisk.config``
-via include list.
+``asterisk.sounds``
+^^^^^^^^^^^^^^^^^^^
+Download sound file packages. You can modify the list of sound packages in the pillar.
+Defaults are defined in ``defaults.yaml``.
 
-``asterisk.clean``
-^^^^^^^^^^^^^^^^^^
-
-*Meta-state (This is a state that includes other states)*.
-
-this state will undo everything performed in the ``asterisk`` meta-state in reverse order, i.e.
-stops the service,
-removes the configuration file and
-then uninstalls the package.
-
-``asterisk.service.clean``
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-This state will stop the asterisk service and disable it at boot time.
-
-``asterisk.config.clean``
-^^^^^^^^^^^^^^^^^^^^^^^^^
-
-This state will remove the configuration of the asterisk service and has a
-dependency on ``asterisk.service.clean`` via include list.
-
-``asterisk.package.clean``
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-This state will remove the asterisk package and has a depency on
-``asterisk.config.clean`` via include list.
-
-``asterisk.subcomponent``
-^^^^^^^^^^^^^^^^^^^^^^^^^
-
-*Meta-state (This is a state that includes other states)*.
-
-This state installs a subcomponent configuration file before
-configuring and starting the asterisk service.
-
-``asterisk.subcomponent.config``
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-This state will configure the asterisk subcomponent and has a
-dependency on ``asterisk.config`` via include list.
-
-``asterisk.subcomponent.config.clean``
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-This state will remove the configuration of the asterisk subcomponent
-and reload the asterisk service by a dependency on
-``asterisk.service.running`` via include list and ``watch_in``
-requisite.
 
 Testing
 -------
