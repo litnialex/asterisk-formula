@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/litnialex/asterisk-formula/compare/v1.0.0...v1.0.1) (2020-09-08)
+
+
+### Documentation
+
+* basic description of this formula ([b5d9ae5](https://github.com/litnialex/asterisk-formula/commit/b5d9ae552e5d1a21b5cdb7a67a6b7f5b630181b9))
+
 # 1.0.0 (2020-08-03)
 
 
