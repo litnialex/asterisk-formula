@@ -15,7 +15,8 @@ Debian:
     libssl-dev libunbound-dev liburiparser-dev libvorbis-dev libvpb-dev libxml2-dev
     libxslt1-dev portaudio19-dev subversion unixodbc-dev uuid-dev xmlstarlet zlib1g-dev
 RedHat:
-  pkgs: >
+  pkgs_basic: bzip2 git patch pkgconf wget
+  pkgs_build: >
     alsa-lib-devel binutils-devel bison bzip2 fftw-devel flex graphviz jansson-devel
     libcurl-devel libical-devel libuuid-devel libxml2-devel libxslt-devel mysql-devel
     net-snmp-devel newt-devel openldap-devel openssl-devel  popt-devel sqlite-devel

@@ -4,7 +4,7 @@
 asterisk:
   pkgs_basic: []
   pkgs_build: []
-  rev: "certified/16.8"
+  rev: "16"
   src_dir: /usr/src/asterisk
   menuselect_enable:
     - app_chanisavail
@@ -29,3 +29,4 @@ asterisk:
             asterisk-extra-sounds-en-wav-current.tar.gz"
       subdir: en
   user: asterisk
+  force_update: False

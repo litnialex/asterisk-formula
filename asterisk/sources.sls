@@ -11,6 +11,11 @@ asterisk-sources:
     - branch: {{ asterisk.rev }}
     - rev: {{ asterisk.rev }}
     - depth: 1
-    - fetch_tags: False
     - target: {{ asterisk.src_dir }}
+    {% if asterisk.force_update  %}
+    - force_clone: True
+    - force_checkout: True
+    - force_reset: True
+    {% else %}
     - creates: {{ asterisk.src_dir }}/.git
+    {% endif %}
