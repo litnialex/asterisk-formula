@@ -29,4 +29,6 @@ asterisk:
             asterisk-extra-sounds-en-wav-current.tar.gz"
       subdir: en
   user: asterisk
+  groups:
+    - ssl-cert
   force_update: False

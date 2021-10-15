@@ -9,4 +9,8 @@ asterisk-configs:
   file.recurse:
     - name: /etc/asterisk
     - source: salt://asterisk/files/configs
+    - template: jinja
+    - context: {{ asterisk }}
+{%- if not asterisk.force_update %}
     - replace: False
+{%- endif %}

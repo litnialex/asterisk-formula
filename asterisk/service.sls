@@ -8,6 +8,7 @@
 asterisk-user:
   user.present:
     - name: {{ asterisk.user }}
+    - groups: {{ asterisk.groups }}
     - usergroup: True
     - shell: /bin/bash
     - home: /var/lib/asterisk
