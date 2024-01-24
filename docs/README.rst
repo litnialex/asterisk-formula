@@ -23,7 +23,7 @@ A SaltStack formula to build `Asterisk IP PBX <http://asterisk.org>`_ from sourc
 General notes
 -------------
 
-It takes a while (about 10 min at a medium PC) to configure and compile Asterisk.
+It takes a while (about 10 min at a medium PC) to configure and compile Asterisk from sources.
 
 This formula uses `template-formula
 <https://github.com/saltstack-formulas/template-formula>`_ as a base.
