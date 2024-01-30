@@ -4,6 +4,7 @@
 
 {%- set tplroot = tpldir.split('/')[0] %}
 {%- from tplroot ~ "/map.jinja" import asterisk with context %}
+{%- from tplroot ~ "/libtofs.jinja" import files_switch with context %}
 
 asterisk-user:
   user.present:
@@ -28,9 +29,9 @@ asterisk-service:
   file.managed:
     - names:
       - /etc/logrotate.d/asterisk:
-        - source: salt://asterisk/files/asterisk.logrotate
+        - source: {{ files_switch(['/etc/logrotate.d/asterisk'], indent_width=10) }}
       - /etc/systemd/system/asterisk.service:
-        - source: salt://asterisk/files/asterisk.service
+        - source: {{ files_switch(['/etc/systemd/system/asterisk.service'], indent_width=10) }}
     - template: jinja
     - context: {{ asterisk }}
     - backup: minion

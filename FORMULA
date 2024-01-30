@@ -1,9 +1,9 @@
 name: asterisk
-os: Debian, Ubuntu, RedHat, Fedora, CentOS
-os_family: Debian, RedHat
+os: Debian, Ubuntu
+os_family: Debian
 version: 1.1.0
 release: 1
 minimum_version: 3001
-summary: asterisk formula
+summary: Asterisk IP-PBX formula
 description: Asterisk IP PBX install/uninstall formula
 top_level_dir: asterisk

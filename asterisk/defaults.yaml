@@ -2,9 +2,9 @@
 # vim: ft=yaml
 ---
 asterisk:
-  pkgs_basic: []
-  pkgs_build: []
-  rev: "16"
+  pkgs_basic: ""
+  pkgs_build: ""
+  rev: "18"
   src_dir: /usr/src/asterisk
   menuselect_enable:
     - app_chanisavail
@@ -29,6 +29,5 @@ asterisk:
             asterisk-extra-sounds-en-wav-current.tar.gz"
       subdir: en
   user: asterisk
-  groups:
-    - ssl-cert
+  groups: ['root']
   force_update: False

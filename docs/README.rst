@@ -16,6 +16,8 @@ asterisk-formula
 
 A SaltStack formula to build `Asterisk IP PBX <http://asterisk.org>`_ from sources.
 
+This formula is forked from `template-formula <https://github.com/saltstack-formulas/template-formula>`_
+
 
 .. contents:: **Table of Contents**
    :depth: 1

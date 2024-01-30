@@ -3,7 +3,8 @@
 ---
 
 Debian:
-  pkgs_basic: bzip2 git patch pkgconf wget
+  pkgs_basic: bzip2 git patch ssl-cert wget
+  groups: ['ssl-cert']
   pkgs_build: >
     binutils-dev bison build-essential doxygen flex freetds-dev graphviz libasound2-dev
     libbluetooth-dev libc-client2007e-dev libcfg-dev libcodec2-dev
@@ -21,6 +22,7 @@ RedHat:
     libcurl-devel libical-devel libuuid-devel libxml2-devel libxslt-devel mysql-devel
     net-snmp-devel newt-devel openldap-devel openssl-devel  popt-devel sqlite-devel
     subversion unbound-devel unixODBC-devel zlib-devel
+  #excluded from pkgs_build because not found
   pkgs_missing: >
     bluez-libs-devel codec2-devel pkgconfig postgresql-devel
     corosynclib-devel doxygen freetds-devel gmime-devel gsm-devel hoard iksemel-devel

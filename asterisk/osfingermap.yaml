@@ -1,49 +1,16 @@
 # -*- coding: utf-8 -*-
 # vim: ft=yaml
-#
-# Setup variables using grains['osfinger'] based logic.
-# You just need to add the key:values for an `osfinger` that differ
-# from `defaults.yaml` + `osarch.yaml` + `os_family.yaml` + `osmap.yaml`.
-# Only add an `osfinger` which is/will be supported by the formula.
-#
-# If you do not need to provide defaults via the `os_finger` grain,
-# you will need to provide at least an empty dict in this file, e.g.
-# osfingermap: {}
 ---
-# os: Debian
-Debian-10: {}
-Debian-9: {}
-Debian-8: {}
-
-# os: Ubuntu
-Ubuntu-18.04:
-  config: /etc/asterisk.d/custom-ubuntu-18.04.conf
-Ubuntu-16.04: {}
-
-# os: Fedora
-Fedora-31: {}
-Fedora-30: {}
-
-# os: CentOS
-CentOS Linux-8: {}
-CentOS Linux-7: {}
-CentOS-6:
-  pkg:
-    name: asterisk-centos-6
-  config: /etc/asterisk.d/custom-centos-6.conf
-
-# os: Amazon
-Amazon Linux-2: {}
-Amazon Linux AMI-2018: {}
-
-# os: SUSE
-Leap-15: {}
-
-# os: FreeBSD
-FreeBSD-12: {}
-
-# os: Windows
-Windows-8.1: {}
-
-# os: Gentoo
-Gentoo-2: {}
+Ubuntu-22.04:
+  pkgs_build: >
+    binutils-dev bison doxygen flex freetds-dev graphviz libasound2-dev
+    libbluetooth-dev libc-client2007e-dev libcap-dev libcfg-dev libcodec2-dev
+    libcorosync-common-dev libcpg-dev libcurl4-openssl-dev libedit-dev
+    libfftw3-dev libgmime-3.0-dev libgsm1-dev libical-dev libiksemel-dev
+    libjack-jackd2-dev libjansson-dev libldap-dev libldap2-dev liblua5.2-dev
+    libmysqlclient-dev libneon27-dev libnewt-dev libogg-dev libosptk-dev
+    libpopt-dev libpq-dev libradcli-dev libresample1-dev libsndfile1-dev
+    libsnmp-dev libspandsp-dev libspeex-dev libspeexdsp-dev libsqlite3-dev
+    libsrtp2-dev libssl-dev libunbound-dev liburiparser-dev libvorbis-dev
+    libvpb-dev libxml2-dev libxslt1-dev pkg-config portaudio19-dev
+    subversion unixodbc-dev uuid-dev wget xmlstarlet
