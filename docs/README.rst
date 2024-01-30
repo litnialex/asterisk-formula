@@ -62,9 +62,3 @@ Install, run and enable systemd service ``asterisk``.
 ^^^^^^^^^^^^^^^^^^^
 Download sound file packages. You can modify the list of sound packages in the pillar.
 Defaults are defined in ``defaults.yaml``.
-
-
-^^^^^^^^^^^^^^^^^^^^^
-
-Gives you SSH access to the instance for manual testing.
-
