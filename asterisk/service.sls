@@ -37,13 +37,13 @@ asterisk-service:
     - backup: minion
 
 asterisk-running:
-{% if "virtual_subtype" in grains %}
+{%- if grains.init in ["systemd"]  %}
+  service.running:
+    - name: asterisk
+    - enable: True
+{%- else %}
   cmd.run:
     - name: /usr/sbin/asterisk -F
     - runas: {{ asterisk.user }}
     - unless: pidof asterisk
-{% else %}
-  service.running:
-    - name: asterisk
-    - enable: True
-{% endif %}
+{%- endif %}
