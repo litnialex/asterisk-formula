@@ -10,11 +10,11 @@ asterisk-compile:
     - names:
       - ./contrib/scripts/get_mp3_source.sh:
         - creates: "{{ asterisk.src_dir }}/addons/mp3/mpg123.h"
-      - ./configure {{ asterisk.configure_options }}:
+      - nice ./configure {{ asterisk.configure_options }}:
         - creates: "{{ asterisk.src_dir }}/config.status"
       - make menuselect.makeopts:
         - creates: "{{ asterisk.src_dir }}/menuselect.makeopts"
-      - make -j{{ grains.num_cpus }}:
+      - nice make -j{{ grains.num_cpus }}:
         - creates: "{{ asterisk.src_dir }}/main/asterisk"
         - require:
           - cmd: asterisk-menuselect
